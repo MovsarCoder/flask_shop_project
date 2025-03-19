@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Добро пожаловать на наш сайт! Это наша главная страница</h1>
+
+<h1>Ассортимент товаров:</h1>
+
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-3 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{product.image}}" class="card-img-top" style="width: 100%; height: 12rem; object-fit: cover;" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">Бренд: {{ product.category.name }}</p>
+                    <a href="#" class="btn btn-primary">{{ product.price }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
